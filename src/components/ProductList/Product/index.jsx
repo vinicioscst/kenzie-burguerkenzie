@@ -1,14 +1,26 @@
 import { StyledBodyText, StyledBodyText600, StyledTitle3 } from "../../../styles/typography"
-import Button from "../../Buttons"
+import { StyledButton } from "../../Buttons/style";
 import { ProductCard, ProductInfo } from "./style";
 
 
-function Product({product}) {
+function Product({product, products, setCartProducts, cartProducts, toast}) {
     
     const price = product.price.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
     });
+
+    const addToCart = (productId) => {
+        const findProduct = products.find (product => product.id === productId)
+        const findProductInCart = cartProducts.find(cartProduct => cartProduct.id === findProduct.id)
+
+        if(findProductInCart) {
+            toast.error("Item não pode ser adicionado novamente!")
+        } else {
+            setCartProducts((cartProducts) => [...cartProducts, findProduct])
+            toast.success("Item adicionado ao carrinho!")
+        }
+    }
 
     return (
         <ProductCard>
@@ -17,7 +29,7 @@ function Product({product}) {
                 <StyledTitle3>{product.name}</StyledTitle3>
                 <StyledBodyText>{product.category}</StyledBodyText>
                 <StyledBodyText600 type="price">{price}</StyledBodyText600>
-                <Button buttonType="medium" buttonColor="gray">Adicionar</Button>
+                <StyledButton type="medium" color="gray" onClick={() => addToCart(product.id)}>Adicionar</StyledButton>
             </ProductInfo>
         </ProductCard>
     )

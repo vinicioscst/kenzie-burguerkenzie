@@ -42,6 +42,7 @@ export const StyledCartIcon = styled.div`
     svg {
         width: 1.5625rem;
         fill: #bdbdbd;
+        cursor: pointer;
     }
 
     span {
@@ -57,5 +58,7 @@ export const StyledCartIcon = styled.div`
         font: 900 .875rem var(--font);
         color: white;
         text-align: left;
+
+        pointer-events: none;
     }
 `
