@@ -1,11 +1,11 @@
-import { StyledButton } from "./style"
+import { StyledButton } from "./style";
 
-const Button = ({buttonType, buttonColor, children}) => {
+const Button = ({ buttonType, buttonColor, children }) => {
+  return (
+    <StyledButton type={buttonType} color={buttonColor}>
+      {children}
+    </StyledButton>
+  );
+};
 
-    return (
-        <StyledButton type={buttonType} color={buttonColor}>{children}</StyledButton>
-    )
-}
-
-
-export default Button
+export default Button;
