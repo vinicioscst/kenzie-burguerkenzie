@@ -9,7 +9,6 @@ import { useEffect, useRef } from "react"
 const CartModal = ({setIsOpen, cartProducts, setCartProducts, toast}) => {
 
     const modalRef = useRef(null)
-    const buttonRef = useRef(null)
 
     useEffect(() => {
 
@@ -59,7 +58,7 @@ const CartModal = ({setIsOpen, cartProducts, setCartProducts, toast}) => {
             <StyledModalContainer ref={modalRef}>
                 <StyledModalHeader>
                     <h3>Carrinho de compras</h3>
-                    <AiOutlineClose ref={buttonRef} onClick={() => setIsOpen(false)}/>
+                    <AiOutlineClose onClick={() => setIsOpen(false)}/>
                 </StyledModalHeader>
                 <StyledModalContent>
                     {cartProducts.length > 0 ? (
