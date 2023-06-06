@@ -4,8 +4,44 @@ import { StyledButton } from "../Buttons/style"
 import CartProduct from "./CartProduct"
 import { StyledTitle3 } from "../../styles/typography"
 import CartTotal from "./CartTotal"
+import { useEffect, useRef } from "react"
 
 const CartModal = ({setIsOpen, cartProducts, setCartProducts, toast}) => {
+
+    const modalRef = useRef(null)
+    const buttonRef = useRef(null)
+
+    useEffect(() => {
+
+        const handleOutClick = (event) => {
+            if(!modalRef.current?.contains(event.target)) {
+                setIsOpen(false)
+            }
+        }
+
+        window.addEventListener("mousedown", handleOutClick)
+
+        return () => {
+            window.removeEventListener("mousedown", handleOutClick)
+        }
+
+    }, [])
+
+    useEffect(() => {
+
+        const handleKeydown = (event) => {
+            if(event.key === "Escape") {
+                setIsOpen(false)
+            }
+        }
+
+        window.addEventListener("keydown", handleKeydown)
+
+        return () => {
+            window.removeEventListener("keydown", handleKeydown)
+        }
+
+    }, [])
 
     const clearCart = () => {
             toast.success("Todos os itens foram removidos com sucesso!")
@@ -20,10 +56,10 @@ const CartModal = ({setIsOpen, cartProducts, setCartProducts, toast}) => {
 
     return (
         <StyledModal role="dialog">
-            <StyledModalContainer>
+            <StyledModalContainer ref={modalRef}>
                 <StyledModalHeader>
                     <h3>Carrinho de compras</h3>
-                    <AiOutlineClose onClick={() => setIsOpen(false)}/>
+                    <AiOutlineClose ref={buttonRef} onClick={() => setIsOpen(false)}/>
                 </StyledModalHeader>
                 <StyledModalContent>
                     {cartProducts.length > 0 ? (
