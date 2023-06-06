@@ -1,15 +1,17 @@
 import Product from "./Product"
-import { StyledProductsList } from "./style"
+import { StyledMain, StyledProductsList } from "./style"
 
 
 function ProductList({products}) {
     
     return (
-      <StyledProductsList length={products.length}>
-        {products.map((product) => (
-            <Product key={product.id} product={product}/>
-        ))}
-      </StyledProductsList>
+      <StyledMain>
+        <StyledProductsList length={products.length}>
+            {products.map((product) => (
+                <Product key={product.id} product={product}/>
+            ))}
+        </StyledProductsList>
+      </StyledMain>
     )
   }
   

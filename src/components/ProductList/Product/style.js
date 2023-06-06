@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 
-export const ProductCard = styled.div`
+export const ProductCard = styled.li`
 
     border: .125rem solid var(--color-grey-100);
     border-radius: .3125rem;
