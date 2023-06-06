@@ -11,6 +11,7 @@ export const StyledTitle1 = styled.h1`
   font-size: 1.625rem;
   font-weight: 700;
   line-height: 2.125rem;
+  color: var(--color-grey-600);
 `;
 
 export const StyledTitle2 = styled.h2`
@@ -18,6 +19,7 @@ export const StyledTitle2 = styled.h2`
   font-size: 1.375rem;
   font-weight: 700;
   line-height: 1.5rem;
+  color: var(--color-grey-600);
 `;
 
 export const StyledTitle3 = styled.h3`
@@ -25,6 +27,7 @@ export const StyledTitle3 = styled.h3`
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.5rem;
+  color: var(--color-grey-600);
 `;
 
 export const StyledHeadlineText = styled.span`
@@ -32,6 +35,7 @@ export const StyledHeadlineText = styled.span`
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5rem;
+  color: var(--color-grey-300);
 `;
 
 export const StyledBodyText = styled.p`
@@ -39,6 +43,7 @@ export const StyledBodyText = styled.p`
   font-size: .875rem;
   font-weight: 400;
   line-height: 1.5rem;
+  color: var(--color-grey-300);
 `;
 
 export const StyledBodyText600 = styled.p`
@@ -46,8 +51,16 @@ export const StyledBodyText600 = styled.p`
   font-size: .875rem;
   font-weight: 600;
   line-height: 1.5rem;
-`;
+  color: var(--color-grey-300);
 
+  ${({ type }) => {
+    if (type === "price") {
+      return css`
+        color: var(--color-primary);
+      `;
+    }
+  }}
+`;
 
 export const StyledCaptionText = styled.span`
   ${TextDefaultStyles}
@@ -55,4 +68,5 @@ export const StyledCaptionText = styled.span`
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1rem;
+  color: var(--color-grey-300);
 `;
