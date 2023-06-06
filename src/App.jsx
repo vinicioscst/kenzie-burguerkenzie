@@ -23,9 +23,13 @@ function App() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await api.get("/products");
-
-      setProducts(response.data);
+      try {
+        const response = await api.get("/products");
+  
+        setProducts(response.data);
+      } catch (error) {
+        toast.error(error.message)
+      }
     };
 
     getProducts();
