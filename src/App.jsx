@@ -13,6 +13,11 @@ function App() {
   const [products, setProducts] = useState([])
   const [cartProducts, setCartProducts] = useState([])
   const [isOpen, setIsOpen] = useState(false)
+  const [inputSearch, setInputSearch] = useState("")
+
+  const filteredProducts = products.filter(
+    product => product.name.toUpperCase().includes(inputSearch.toUpperCase()) || product.category.toUpperCase().includes(inputSearch.toUpperCase()) 
+  )
 
 
   useEffect(() => {
@@ -29,8 +34,8 @@ function App() {
     <>
       <GlobalReset />
       <GlobalStyles />
-      <Header setIsOpen={setIsOpen} cartProducts={cartProducts} />
-      <ProductList products={products} setCartProducts={setCartProducts} cartProducts={cartProducts} toast={toast} />
+      <Header setIsOpen={setIsOpen} cartProducts={cartProducts} setInputSearch={setInputSearch} />
+      <ProductList filteredProducts={filteredProducts} setCartProducts={setCartProducts} cartProducts={cartProducts} toast={toast} />
       {isOpen ? <CartModal setIsOpen={setIsOpen} cartProducts={cartProducts} setCartProducts={setCartProducts} toast={toast}/> : null}
       <ToastContainer autoClose={2000}/>
     </>

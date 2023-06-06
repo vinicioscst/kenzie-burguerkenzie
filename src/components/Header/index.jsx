@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa"
 import { StyledCartIcon, StyledHeader, StyledHeaderContainer, StyledMainContent } from "./style"
 import InputSearch from "./InputSearch"
 
-const Header = ({setIsOpen, cartProducts}) => {
+const Header = ({setIsOpen, cartProducts, setInputSearch}) => {
 
     return (
         <StyledHeader>
@@ -15,7 +15,7 @@ const Header = ({setIsOpen, cartProducts}) => {
                         <span>{cartProducts.length}</span>
                     </StyledCartIcon>
                 </StyledMainContent>
-                <InputSearch />
+                <InputSearch setInputSearch={setInputSearch}/>
             </StyledHeaderContainer>
         </StyledHeader>
     )

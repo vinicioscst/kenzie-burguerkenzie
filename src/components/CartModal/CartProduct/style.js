@@ -9,6 +9,7 @@ const defaultStyles = css`
 export const StyledItemCard = styled.li`
     ${defaultStyles}
     justify-content: space-between;
+    gap: .625rem;
 
     svg {
         fill: #BDBDBD;

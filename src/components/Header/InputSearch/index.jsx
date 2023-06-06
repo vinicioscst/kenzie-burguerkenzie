@@ -1,14 +1,14 @@
 import { FaSearch } from "react-icons/fa"
 import { StyledForm, StyledInput } from "./style"
-import Button from "../../Buttons"
+import { StyledButton } from "../../Buttons/style"
 
-const InputSearch = () => {
+const InputSearch = ({setInputSearch}) => {
 
 
     return (
         <StyledForm>
-            <StyledInput type="text" placeholder="Digitar Pesquisa" />
-            <Button buttonType="medium" buttonColor="green"><FaSearch/></Button>
+            <StyledInput type="text" placeholder="Digitar Pesquisa" onChange={(event) => setInputSearch(event.target.value)}/>
+            <StyledButton type="medium" color="green" onClick={(event) => event.preventDefault()}><FaSearch/></StyledButton>
         </StyledForm>
     )
 }

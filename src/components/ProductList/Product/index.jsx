@@ -3,7 +3,7 @@ import { StyledButton } from "../../Buttons/style";
 import { ProductCard, ProductInfo } from "./style";
 
 
-function Product({product, products, setCartProducts, cartProducts, toast}) {
+function Product({product, filteredProducts, setCartProducts, cartProducts, toast}) {
     
     const price = product.price.toLocaleString("pt-BR", {
         style: "currency",
@@ -11,7 +11,7 @@ function Product({product, products, setCartProducts, cartProducts, toast}) {
     });
 
     const addToCart = (productId) => {
-        const findProduct = products.find (product => product.id === productId)
+        const findProduct = filteredProducts.find (product => product.id === productId)
         const findProductInCart = cartProducts.find(cartProduct => cartProduct.id === findProduct.id)
 
         if(findProductInCart) {
