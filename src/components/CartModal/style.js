@@ -23,6 +23,8 @@ export const StyledModalContainer = styled.div`
     background: white;
     border: .0625rem solid var(--color-grey-000);
     border-radius: .3125rem;
+
+    margin: 0 1rem;
 `
 
 export const StyledModalHeader = styled.div`
