@@ -2,7 +2,7 @@ import { StyledBodyText, StyledBodyText600, StyledTitle3 } from "../../../styles
 import { StyledButton } from "../../Buttons/style";
 import { ProductCard, ProductInfo } from "./style";
 
-function Product({ product, filteredProducts, setCartProducts, cartProducts, toast }) {
+const Product = ({ product, filteredProducts, setCartProducts, cartProducts, toast }) => {
   const price = product.price.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",

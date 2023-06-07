@@ -1,7 +1,7 @@
 import Product from "./Product";
 import { StyledMain, StyledProductsList } from "./style";
 
-function ProductList({ filteredProducts, setCartProducts, cartProducts, toast }) {
+const ProductList = ({ filteredProducts, setCartProducts, cartProducts, toast }) => {
   return (
     <StyledMain>
       <StyledProductsList length={filteredProducts.length}>

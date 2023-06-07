@@ -9,7 +9,7 @@ import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import CartModal from "./components/CartModal";
 
-function App() {
+const App = () => {
   const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
